@@ -5,23 +5,78 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-white: #ffffff;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply text-foreground bg-background;
+  direction: rtl;
+  font-family: var(--font-yekan), sans-serif;
+}
+h1 {
+  @apply text-[26px] leading-[33px] font-bold;
+}
+
+h6 {
+  @apply text-[16px] leading-[20px] font-semibold;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.step svg * {
+  @apply stroke-gray-400;
+}
+
+.step::before {
+  @apply !h-0 border-b border-dashed !bg-gray-400 !border-white;
+
+  border-bottom-width: 2px;
+}
+
+.step::after {
+  @apply !h-[72px] !w-[72px] !bg-white border border-gray-400;
+}
+
+.step-primary::before {
+  @apply !bg-brand-300 !border-brand-300;
+}
+
+.step-primary::after {
+  @apply !bg-brand-300 !text-white border-brand-300;
+}
+
+.step-primary svg * {
+  @apply !stroke-white;
+}
+
+.step-primary {
+  @apply text-brand-300;
+}
+
+.steps {
+  @apply min-w-[31.25rem] h-28 pt-8 text-gray-400;
+}
+
+.steps .step {
+  @apply relative h-24;
+}
+
+.step-before-end::after {
+  @apply !bg-white !text-brand-500 border-brand-500;
+}
+
+.step-before-end svg * {
+  @apply !stroke-brand-500;
+}
+
+.step-before-end {
+  @apply text-brand-500;
+}
+
+.step-image {
+  @apply absolute top-1 z-10;
 }
